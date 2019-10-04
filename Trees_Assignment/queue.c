@@ -23,7 +23,7 @@ uint32_t queue_empty(Queue *q)
     return (q->count ==0);
 }
 
-Queue* queue_add(Queue *q,int32_t element,Queue_Result *res)
+Queue* queue_add(Queue *q,DATA_TYPE element,Queue_Result *res)
 {
     assert(q!=NULL);
     if(q->count <q->size)
