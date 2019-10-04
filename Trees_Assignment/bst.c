@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<assert.h>
 #include "bst.h"
+#define DATA_TYPE Node*
 #include "queue.h"
 
 
@@ -197,7 +198,32 @@ static void _postorder_(Node *n)
 }
 
 
+void tree_levelorder(Tree *t)
+{
+	assert(t->root!=NULL);
+	Node *temp;
+	Queue Tree_queue = queue_new(t->count);
+	Queue *queue = &Tree_queue;
+	Queue_Result *res = (Queue_Result*) malloc(sizeof(Queue_Result));
+	queue = queue_add(queue,t->root,res);
+	while(queue->count!=0)
+	{
+		queue_delete(queue,res);
+		temp = res->data;
 
+		
+		if(temp->left!=NULL)
+		{	
+			queue_add(queue,temp->left,res);
+		}
+		if(temp->right!=NULL)
+		{
+			queue_add(queue,temp->right,res);
+		}
+		printf("%d \t",temp->data);
+	}
+	printf("\n");
+}
 
 
 static int32_t max_height(Node *n)
