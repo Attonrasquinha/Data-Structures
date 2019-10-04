@@ -1,9 +1,15 @@
 #ifndef INCLUDED_QUEUE_
 #define INCLUDED_QUEUE_
 #include<stdint.h>
+
 #define MAX_DEPTH 32
 #include<stddef.h>
 #include<stdlib.h>
+
+
+#ifndef DATA_TYPE
+#define DATA_TYPE void*
+#endif
 
 #define QUEUE_OK 1
 #define QUEUE_FULL 2
